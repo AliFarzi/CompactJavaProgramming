@@ -28,4 +28,8 @@ public class Problem1
     }
 }
 
- 
+/*  output is: 
+The volume of the Earth is 229,847,296,117 cubic miles
+The volume of the Sun is 338,880,785,199,312,100 cubic miles, and 
+the ratio of the volume of the Sun to the volume of the Earth is 1,474,373.60
+*/

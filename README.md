@@ -1,0 +1,1 @@
+Welcome to our team's Java assignment repository! Here, you'll find all the essential files and organized folders dedicated to completing our coursework and projects in Java. Explore the structure to easily locate the resources you need.

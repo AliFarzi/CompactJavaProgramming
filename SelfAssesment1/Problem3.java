@@ -27,7 +27,7 @@ public class Problem3 {
                 + " consonants " + (letters - vowels) + "\n" + " spaces: " + spaces);
     }
 
-    /* Output is:
+    /* Output :
     The text contained vowels: 60
     consonants 93
     spaces: 37 

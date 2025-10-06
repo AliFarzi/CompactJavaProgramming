@@ -53,4 +53,43 @@ public class app {
 
 
     }
+
+
+    /* output of the program:
+
+     *  Executing Industrial Process: IP1
+        Performing human operation using: Human Operation 1
+        Duration: 2.00 hours
+        Total cost of Human Operation 1: 53.76 Euro
+
+        Performing transport operation using: Transport Operation 1
+        Duration: 3.00 hours
+        Total consumption of Transport Operation 1: 39.27 kWh
+
+        Allocating human resources: Human Resource 2
+        Amount allocated: 8
+        Total cost of Human Resource 2: 110.75 Euro
+
+        Allocating hardware resources: Hardware Resource 3
+        Amount allocated: 29
+        Total cost of Hardware Resource 3: 3484.50 Euro
+
+        Allocating AGV resources: Automated Guided Vehicle 1
+        Amount allocated: 1
+        Total cost of Automated Guided Vehicle 1: 85579.06 Euro
+
+        Allocating material resources: Material Resource 1
+        Amount allocated: 12
+        Total cost of Material Resource 1: 275.06 Euro
+
+        Allocating software resources: Software Resource 1
+        Amount allocated: 42
+        Total cost of Software Resource 1: 8148.71 Euro
+
+        Total cost for Industrial Process ID IP1: 97651.84 Euro
+        Total consumption for Industrial Process ID IP1: 39.27 kWh
+        Total duration for Industrial Process ID IP1: 5.00 hours
+        Total resources allocated for Industrial Process ID IP1: 92.00
+--------------------------------------------------
+      End of the output  */
 }

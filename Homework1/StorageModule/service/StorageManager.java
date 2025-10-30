@@ -1,10 +1,8 @@
 package Homework1.StorageModule.service;
 
 import Homework1.StorageModule.model.*;
-
-import java.util.List;
-
 import Homework1.StorageModule.exceptions.*;
+import java.util.List;
 
 public class StorageManager {
 
@@ -18,36 +16,33 @@ public class StorageManager {
             throws CellOccupiedException, CellLockedException, CellNotFoundException {
 
         Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException("Cell not found at " + position);
-        if (cell.isLocked()) throw new CellLockedException("Cell is locked at " + position);
-        if (!cell.isEmpty()) throw new CellOccupiedException("Cell already occupied at " + position);
+        if (cell == null) throw new CellNotFoundException(position);
+        if (cell.isLocked()) throw new CellLockedException(position);
+        if (!cell.isEmpty()) throw new CellOccupiedException(position);
 
         cell.store(item);
         item.moveTo(position); 
     }
 
-      //  Add an item to the first available cell in the warehouse.
+    // Add an item to the first available cell in the warehouse.
     public void addItem(Item item)
             throws StorageFullException, CellOccupiedException, CellLockedException, CellNotFoundException {
 
         Cell cell = findFirstAvailableCell();
         if (cell == null) {
-            throw new StorageFullException("No empty cells available!");
+            throw new StorageFullException();
         }
 
         addItem(item, cell.getPosition());
     }
 
-
-
-
     public Item retrieveItem(Position position)
             throws CellEmptyException, CellLockedException, CellNotFoundException {
 
         Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException("Cell not found at " + position);
-        if (cell.isLocked()) throw new CellLockedException("Cell is locked at " + position);
-        if (cell.isEmpty()) throw new CellEmptyException("Cell is empty at " + position);
+        if (cell == null) throw new CellNotFoundException(position);
+        if (cell.isLocked()) throw new CellLockedException(position);
+        if (cell.isEmpty()) throw new CellEmptyException(position);
 
         Item item = cell.retrieve();
         item.updateStatus(Item.Status.RETRIEVED);
@@ -61,19 +56,18 @@ public class StorageManager {
         Cell toCell = storage.getCell(to);
 
         if (fromCell == null || toCell == null)
-            throw new CellNotFoundException("Invalid source or destination cell");
+            throw new CellNotFoundException();
 
-        if (fromCell.isEmpty()) throw new CellEmptyException("Source cell is empty: " + from);
-        if (!toCell.isEmpty()) throw new CellOccupiedException("Destination cell occupied: " + to);
-        if (fromCell.isLocked() || toCell.isLocked()) throw new CellLockedException("Cell is locked");
+        if (fromCell.isEmpty()) throw new CellEmptyException(from);
+        if (!toCell.isEmpty()) throw new CellOccupiedException(to);
+        if (fromCell.isLocked() || toCell.isLocked()) throw new CellLockedException();
 
         Item item = fromCell.retrieve();
         toCell.store(item);
         item.moveTo(to); 
     }
 
-
-     //  Find the first available empty cell (default strategy: first-fit)
+    // Find the first available empty cell (default strategy: first-fit)
     public Cell findFirstAvailableCell() {
         List<Cell> cells = storage.getCells();
         for (Cell cell : cells) {
@@ -84,7 +78,7 @@ public class StorageManager {
         return null; 
     }
 
-     public int countAvailableCells() {
+    public int countAvailableCells() {
         int count = 0;
         for (Cell cell : storage.getCells()) {
             if (cell.isAvailable()) count++;
@@ -92,7 +86,7 @@ public class StorageManager {
         return count;
     }
 
-     //  Print storage info (for debugging).
+    // Print storage info (for debugging)
     public void printStorageInfo() {
         System.out.println("Storage: " + storage.getName());
         System.out.println("Total cells: " + storage.getCells().size());

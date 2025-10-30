@@ -1,5 +1,7 @@
 package Homework1.StorageModule.model;
 
+import Homework1.StorageModule.exceptions.CellEmptyException;
+
 //  Represents a single storage slot (cell) in the warehouse.
 public class Cell {
     private String id;        
@@ -33,9 +35,9 @@ public class Cell {
     }
 
     // Remove the item from the cell
-    public Item retrieve() {
+    public Item retrieve() throws CellEmptyException{
         if (isEmpty()) {
-            throw new IllegalStateException("Cell " + id + " is already empty!");
+            throw new CellEmptyException();
         }
         Item temp = content;
         content = null;

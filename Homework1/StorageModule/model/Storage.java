@@ -3,6 +3,9 @@ package Homework1.StorageModule.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import Homework1.StorageModule.exceptions.CellEmptyException;
+import Homework1.StorageModule.exceptions.CellNotFoundException;
+
 //  * Represents the entire warehouse.
 public class Storage {
     private String id;                
@@ -32,14 +35,15 @@ public class Storage {
         }
     }
 
-    public Cell getCell(Position position) {
+    public Cell getCell(Position position) throws CellNotFoundException {
         for (Cell cell : cells) {
             if (cell.getPosition().equals(position)) {
                 return cell;
             }
         }
-        return null; 
+        throw new CellNotFoundException(position);
     }
+    
 
     // Find the first available (empty and unlocked) cell
     public Cell findEmptyCell() {
@@ -51,21 +55,16 @@ public class Storage {
         return null; 
     }
 
-    public void addItem(Item item, Position position) {
+    public void addItem(Item item, Position position) throws CellNotFoundException {
         Cell cell = getCell(position);
-        if (cell == null) {
-            throw new IllegalArgumentException("No cell found at position " + position);
-        }
-        cell.store(item);
+        cell.store(item); // no need to check null anymore; getCell will throw if not found
     }
-
-    public Item removeItem(Position position) {
+    
+    public Item removeItem(Position position) throws CellNotFoundException,CellEmptyException {
         Cell cell = getCell(position);
-        if (cell == null) {
-            throw new IllegalArgumentException("No cell found at position " + position);
-        }
         return cell.retrieve();
     }
+    
 
     public String getId() { return id; }
     public String getName() { return name; }

@@ -1,4 +1,4 @@
-package Homework1.StorageModule.model;
+package Homework2.StorageModule.model;
 
 import java.util.Objects;
 

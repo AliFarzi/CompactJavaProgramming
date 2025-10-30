@@ -1,6 +1,6 @@
-package Homework1.StorageModule.exceptions;
+package Homework2.StorageModule.exceptions;
 
-import Homework1.StorageModule.constants.ExceptionMessages;
+import Homework2.StorageModule.constants.ExceptionMessages;
 
 public class StorageFullException extends Exception {
     public StorageFullException() {

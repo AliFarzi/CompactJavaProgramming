@@ -33,8 +33,8 @@ It provides an easy-to-use API to add, move, and retrieve items from storage cel
 
 ### Step 1: Initialize Storage
 
-import Homework1.StorageModule.*;
-import Homework1.StorageModule.model.*;
+import Homework2.StorageModule.*;
+import Homework2.StorageModule.model.*;
 
 Storage storage = new Storage("WH1", "Main Warehouse", 5, 5, 3);
 StorageSubmodule storageModule = new StorageSubmodule(storage);

@@ -1,14 +1,24 @@
-package com.compact.hw1.equipment;
+package Homework1.EqiupmentModule.model;
+
+import Homework1.StorageModule.model.Position;
 
 public class Shuttle extends Equipment {
     private final double maxLoadWeight;
 
     public Shuttle(String id, Position position, double speed, double batteryLevel, double maxLoadWeight) {
-        super(id, "Shuttle", position, speed, batteryLevel);
+        super(id, position, speed, batteryLevel);
         this.maxLoadWeight = maxLoadWeight;
     }
 
     public double getMaxLoadWeight() {
         return maxLoadWeight;
+    }
+
+    // needs to be changed later
+    @Override
+    public void charge(ChargingStation c) {
+        if (c.startCharging(this)) {
+            this.setState(EquipmentState.CHARGING);
+        }
     }
 }

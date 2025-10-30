@@ -1,4 +1,6 @@
-package com.compact.hw1.equipment;
+package Homework1.EqiupmentModule.model;
+
+import Homework1.StorageModule.model.Position;
 
 public class ChargingStation {
     private final String id;

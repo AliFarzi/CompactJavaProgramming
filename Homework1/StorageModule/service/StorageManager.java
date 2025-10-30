@@ -3,9 +3,6 @@ package Homework1.StorageModule.service;
 import Homework1.StorageModule.model.*;
 import Homework1.StorageModule.exceptions.*;
 
-import java.util.List;
-
-// logic for Storage operations
 public class StorageManager {
 
     private Storage storage;
@@ -14,70 +11,46 @@ public class StorageManager {
         this.storage = storage;
     }
 
-    // Add an item to a specific position
-    public void addItem(Item item, Position position) throws CellOccupiedException, CellLockedException, CellNotFoundException {
+    public void addItem(Item item, Position position)
+            throws CellOccupiedException, CellLockedException, CellNotFoundException {
+
         Cell cell = storage.getCell(position);
-        if (cell == null) {
-            throw new CellNotFoundException("No cell found at position " + position);
-        }
-        if (cell.isLocked()) {
-            throw new CellLockedException("Cell " + cell.getId() + " is locked!");
-        }
-        if (!cell.isEmpty()) {
-            throw new CellOccupiedException("Cell " + cell.getId() + " is already occupied!");
-        }
+        if (cell == null) throw new CellNotFoundException("Cell not found at " + position);
+        if (cell.isLocked()) throw new CellLockedException("Cell is locked at " + position);
+        if (!cell.isEmpty()) throw new CellOccupiedException("Cell already occupied at " + position);
 
         cell.store(item);
+        item.moveTo(position); 
     }
 
-    // Retrieve an item from a specific position
-    public Item retrieveItem(Position position) throws CellEmptyException, CellLockedException, CellNotFoundException {
+    public Item retrieveItem(Position position)
+            throws CellEmptyException, CellLockedException, CellNotFoundException {
+
         Cell cell = storage.getCell(position);
-        if (cell == null) {
-            throw new CellNotFoundException("No cell found at position " + position);
-        }
-        if (cell.isLocked()) {
-            throw new CellLockedException("Cell " + cell.getId() + " is locked!");
-        }
-        if (cell.isEmpty()) {
-            throw new CellEmptyException("Cell " + cell.getId() + " is empty!");
-        }
+        if (cell == null) throw new CellNotFoundException("Cell not found at " + position);
+        if (cell.isLocked()) throw new CellLockedException("Cell is locked at " + position);
+        if (cell.isEmpty()) throw new CellEmptyException("Cell is empty at " + position);
 
-        return cell.retrieve();
+        Item item = cell.retrieve();
+        item.updateStatus(Item.Status.RETRIEVED);
+        return item;
     }
 
-    // Find the first available empty cell
-    public Cell findEmptyCell() {
-        List<Cell> cells = storage.getCells();
-        for (Cell cell : cells) {
-            if (cell.isAvailable()) {
-                return cell;
-            }
-        }
-        return null;
-    }
+    public void moveItem(Position from, Position to)
+            throws CellEmptyException, CellOccupiedException, CellLockedException, CellNotFoundException {
 
-    // Lock a cell
-    public void lockCell(Position position) throws CellNotFoundException {
-        Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException("No cell found at position " + position);
-        cell.lock();
-    }
+        Cell fromCell = storage.getCell(from);
+        Cell toCell = storage.getCell(to);
 
-    // Unlock a cell
-    public void unlockCell(Position position) throws CellNotFoundException {
-        Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException("No cell found at position " + position);
-        cell.unlock();
-    }
+        if (fromCell == null || toCell == null)
+            throw new CellNotFoundException("Invalid source or destination cell");
 
-    // Move an item from one cell to another
-    public void moveItem(Position from, Position to) throws CellNotFoundException, CellLockedException, CellOccupiedException, CellEmptyException {
-        Item item = retrieveItem(from); 
-        addItem(item, to);            
-    }
+        if (fromCell.isEmpty()) throw new CellEmptyException("Source cell is empty: " + from);
+        if (!toCell.isEmpty()) throw new CellOccupiedException("Destination cell occupied: " + to);
+        if (fromCell.isLocked() || toCell.isLocked()) throw new CellLockedException("Cell is locked");
 
-    public Storage getStorage() {
-        return storage;
+        Item item = fromCell.retrieve();
+        toCell.store(item);
+        item.moveTo(to); 
     }
 }

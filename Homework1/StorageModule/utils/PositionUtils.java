@@ -5,10 +5,10 @@ import Homework1.StorageModule.model.Position;
 public class PositionUtils {
 
     //  Check if a position is valid within the warehouse bounds
-    public static boolean isValid(Position position, int maxRows, int maxColumns, int maxLevels) {
-        return position.getX() >= 0 && position.getX() < maxRows
-            && position.getY() >= 0 && position.getY() < maxColumns
-            && position.getLevel() >= 0 && position.getLevel() < maxLevels;
+    public static boolean isValid(Position pos, int maxRows, int maxCols, int maxLevels) {
+        return pos.getX() >= 1 && pos.getX() <= maxRows &&
+               pos.getY() >= 1 && pos.getY() <= maxCols &&
+               pos.getLevel() >= 1 && pos.getLevel() <= maxLevels;
     }
 
     //  Calculate the 3D distance between two positions

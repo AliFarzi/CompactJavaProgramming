@@ -8,7 +8,6 @@ public class TestStorageUsage {
 
     public static void main(String[] args) {
         Storage storage = new Storage("WH1", "Main Warehouse", 3, 3, 1); // 9 cells
-        //StorageSubmodule warehouse = new StorageSubmodule(storage);
         StorageManager warehouse = new StorageManager(storage);
 
         try {
@@ -30,31 +29,42 @@ public class TestStorageUsage {
 
             // Move item
             System.out.println("\n=== MOVING ITEM ===");
-            warehouse.moveItem(new Position(1, 1, 1), new Position(2, 2, 1));
-            System.out.println("Moved I001 to (2,2,1)");
+            try {
+                warehouse.moveItem(new Position(1, 1, 1), new Position(2, 2, 1));
+                System.out.println("Moved I001 to (2,2,1)");
+            } catch (CellNotFoundException | CellEmptyException | CellOccupiedException | CellLockedException e) {
+                System.out.println("!!! " + e.getMessage());
+            }
             warehouse.printStorageInfo();
 
             // Retrieve item
             System.out.println("\n=== RETRIEVING ITEM ===");
-            Item retrieved = warehouse.retrieveItem(new Position(2, 2, 1));
-            System.out.println(" Retrieved: " + retrieved);
+            try {
+                Item retrieved = warehouse.retrieveItem(new Position(2, 2, 1));
+                System.out.println(" Retrieved: " + retrieved);
+            } catch (CellNotFoundException | CellEmptyException | CellLockedException e) {
+                System.out.println("!!! " + e.getMessage());
+            }
             warehouse.printStorageInfo();
 
             // Fill up storage
             System.out.println("\n=== FILLING STORAGE ===");
             for (int i = 4; i <= 10; i++) {
-                Item item = new Item("I00" + i, "Item" + i, 1.0, new Position(0, 0, 0));
-                warehouse.addItem(item);
-                System.out.println(" Added " + item.getId());
+                try {
+                    Item item = new Item("I00" + i, "Item" + i, 1.0, new Position(0, 0, 0));
+                    warehouse.addItem(item);
+                    System.out.println(" Added " + item.getId());
+                } catch (StorageFullException | CellOccupiedException | CellLockedException | CellNotFoundException e) {
+                    System.out.println("!!! " + e.getMessage());
+                }
             }
-
             warehouse.printStorageInfo();
 
             // Try moving to occupied cell
             System.out.println("\n=== TESTING OCCUPIED CELL ===");
             try {
                 warehouse.moveItem(new Position(1, 2, 1), new Position(1, 1, 1)); // occupied
-            } catch (CellOccupiedException e) {
+            } catch (CellOccupiedException | CellEmptyException | CellLockedException | CellNotFoundException e) {
                 System.out.println("!!! " + e.getMessage());
             }
 
@@ -62,7 +72,7 @@ public class TestStorageUsage {
             System.out.println("\n=== TESTING INVALID MOVE ===");
             try {
                 warehouse.moveItem(new Position(3, 3, 1), new Position(2, 2, 1)); // source empty
-            } catch (CellEmptyException e) {
+            } catch (CellEmptyException | CellOccupiedException | CellLockedException | CellNotFoundException e) {
                 System.out.println("!!! " + e.getMessage());
             }
 
@@ -70,32 +80,27 @@ public class TestStorageUsage {
             System.out.println("\n=== TESTING EMPTY RETRIEVE ===");
             try {
                 warehouse.retrieveItem(new Position(3, 3, 1)); // empty
-            } catch (CellEmptyException e) {
+            } catch (CellEmptyException | CellLockedException | CellNotFoundException e) {
                 System.out.println("!!! " + e.getMessage());
             }
 
-        } catch (StorageFullException e) {
-            System.out.println("Storage full: " + e.getMessage());
+            // Re-add after retrieve
+            System.out.println("\n=== RE-ADDING AFTER RETRIEVE ===");
+            try {
+                Item item11 = new Item("I011", "Tablet", 2.2, new Position(0, 0, 0));
+                warehouse.addItem(item11);
+                System.out.println(" Re-added " + item11.getId());
+            } catch (StorageFullException | CellOccupiedException | CellLockedException | CellNotFoundException e) {
+                System.out.println("!!! " + e.getMessage());
+            }
 
-        } catch (CellOccupiedException | CellLockedException | CellNotFoundException |
-                 CellEmptyException | IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (Exception e) {
+            // This should rarely trigger now
+            System.out.println("Unexpected error: " + e.getMessage());
         }
 
         System.out.println("\n=== FINAL STORAGE STATE ===");
         warehouse.printStorageInfo();
-
-        System.out.println("\n=== RE-ADDING AFTER RETRIEVE ===");
-        try {
-            Item item11 = new Item("I011", "Tablet", 2.2, new Position(0, 0, 0));
-            warehouse.addItem(item11);
-            System.out.println("Re-added " + item11.getId());
-        } catch (Exception e) {
-            System.out.println("!!!!!!!!!!" + e.getMessage());
-        }
-
-        warehouse.printStorageInfo();
-
         System.out.println("\n Simulation completed successfully.");
     }
 }

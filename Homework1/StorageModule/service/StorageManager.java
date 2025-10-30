@@ -1,6 +1,9 @@
 package Homework1.StorageModule.service;
 
 import Homework1.StorageModule.model.*;
+
+import java.util.List;
+
 import Homework1.StorageModule.exceptions.*;
 
 public class StorageManager {
@@ -22,6 +25,21 @@ public class StorageManager {
         cell.store(item);
         item.moveTo(position); 
     }
+
+      //  Add an item to the first available cell in the warehouse.
+    public void addItem(Item item)
+            throws StorageFullException, CellOccupiedException, CellLockedException, CellNotFoundException {
+
+        Cell cell = findFirstAvailableCell();
+        if (cell == null) {
+            throw new StorageFullException("No empty cells available!");
+        }
+
+        addItem(item, cell.getPosition());
+    }
+
+
+
 
     public Item retrieveItem(Position position)
             throws CellEmptyException, CellLockedException, CellNotFoundException {
@@ -52,5 +70,32 @@ public class StorageManager {
         Item item = fromCell.retrieve();
         toCell.store(item);
         item.moveTo(to); 
+    }
+
+
+     //  Find the first available empty cell (default strategy: first-fit)
+    public Cell findFirstAvailableCell() {
+        List<Cell> cells = storage.getCells();
+        for (Cell cell : cells) {
+            if (cell.isAvailable()) {
+                return cell;
+            }
+        }
+        return null; 
+    }
+
+     public int countAvailableCells() {
+        int count = 0;
+        for (Cell cell : storage.getCells()) {
+            if (cell.isAvailable()) count++;
+        }
+        return count;
+    }
+
+     //  Print storage info (for debugging).
+    public void printStorageInfo() {
+        System.out.println("Storage: " + storage.getName());
+        System.out.println("Total cells: " + storage.getCells().size());
+        System.out.println("Available cells: " + countAvailableCells());
     }
 }

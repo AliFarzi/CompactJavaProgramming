@@ -1,14 +1,15 @@
 package Homework1.TaskModule;
 
-import Homework1.StorageModule.*;
 import Homework1.StorageModule.model.*;
+import Homework1.StorageModule.service.StorageManager;
 import Homework1.StorageModule.exceptions.*;
 
 public class TestStorageUsage {
 
     public static void main(String[] args) {
         Storage storage = new Storage("WH1", "Main Warehouse", 3, 3, 1); // 9 cells
-        StorageSubmodule warehouse = new StorageSubmodule(storage);
+        //StorageSubmodule warehouse = new StorageSubmodule(storage);
+        StorageManager warehouse = new StorageManager(storage);
 
         try {
             System.out.println("\n=== ADDING ITEMS ===");
@@ -30,7 +31,7 @@ public class TestStorageUsage {
             // Move item
             System.out.println("\n=== MOVING ITEM ===");
             warehouse.moveItem(new Position(1, 1, 1), new Position(2, 2, 1));
-            System.out.println("Moved I001 → (2,2,1)");
+            System.out.println("Moved I001 to (2,2,1)");
             warehouse.printStorageInfo();
 
             // Retrieve item

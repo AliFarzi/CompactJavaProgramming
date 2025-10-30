@@ -1,8 +1,8 @@
-package Homework1.TaskModule;
+package Homework2.TaskModule;
 
-import Homework1.StorageModule.model.*;
-import Homework1.StorageModule.service.StorageManager;
-import Homework1.StorageModule.exceptions.*;
+import Homework2.StorageModule.model.*;
+import Homework2.StorageModule.service.StorageManager;
+import Homework2.StorageModule.exceptions.*;
 
 public class TestStorageUsage {
 
@@ -95,7 +95,7 @@ public class TestStorageUsage {
             }
 
         } catch (Exception e) {
-            // This should rarely trigger now
+            // This should trigger now
             System.out.println("Unexpected error: " + e.getMessage());
         }
 

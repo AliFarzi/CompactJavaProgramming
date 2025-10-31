@@ -1,0 +1,7 @@
+storage/exceptions/AllExceptionTests.class
+storage/exceptions/CellEmptyExceptionTest.class
+storage/exceptions/CellLockedExceptionTest.class
+storage/model/CellTest.class
+storage/exceptions/CellNotFoundExceptionTest.class
+storage/exceptions/StorageFullExceptionTest.class
+storage/exceptions/CellOccupiedExceptionTest.class

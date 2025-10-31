@@ -1,7 +1,7 @@
-package Homework2.StorageModule.exceptions;
+package Homework1.StorageModule.exceptions;
 
-import Homework2.StorageModule.constants.ExceptionMessages;
-import Homework2.StorageModule.model.Position;
+import Homework1.StorageModule.constants.ExceptionMessages;
+import Homework1.StorageModule.model.Position;
 
 public class CellOccupiedException extends Exception {
     public CellOccupiedException(Position position) {

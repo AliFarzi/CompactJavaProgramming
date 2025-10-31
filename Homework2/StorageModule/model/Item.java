@@ -1,4 +1,4 @@
-package Homework2.StorageModule.model;
+package Homework1.StorageModule.model;
 
 //  * Represents a physical object stored in a warehouse cell.
 public class Item {

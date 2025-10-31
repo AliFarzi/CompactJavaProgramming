@@ -1,6 +1,6 @@
-package Homework2.StorageModule.model;
+package Homework1.StorageModule.model;
 
-import Homework2.StorageModule.exceptions.CellEmptyException;
+import Homework1.StorageModule.exceptions.CellEmptyException;
 
 //  Represents a single storage slot (cell) in the warehouse.
 public class Cell {

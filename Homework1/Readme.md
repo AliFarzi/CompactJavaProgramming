@@ -19,13 +19,13 @@ Key features:
 
 ---
 
-### 2. Equipment Module (Ali Shaaba)
+### 2. Equipment Module (Ali Shaaban)
 Handles **equipment simulation**, including the movement of mechanical components (robots, agv, etc.) required to perform storage and retrieval.  
 This module communicates with the Storage module to execute item movements based on the current task.
 
 ---
 
-### 3. Logging Module (Priyanks)
+### 3. Logging Module (Priyanka)
 Responsible for **system logging and lifecycle monitoring**.  
 It tracks all system activities such as storage actions, equipment usage, and errors.  
 The module provides a visual simulation of the storage lifecycle.
@@ -62,7 +62,7 @@ The `TaskModule` acts as the main simulation runner for the entire system.
 | **Usman Rangrez** | Storage Module | Handles storage logic, item-cell allocation, and exception handling |
 | **Ali Shaaba** | Equipment Module | Simulates equipment and mechanical interactions |
 | **Priyanks** | Logging | Handles logging, system monitoring,  |
-| **Ali Farzizada** | Integration | TaskModule and task orchestration(APIS integration) |
+| **Ali Farzizada** | Integration | TaskModule and task orchestration (API integration) |
 
 ---
 

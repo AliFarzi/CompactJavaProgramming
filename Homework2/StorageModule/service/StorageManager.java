@@ -1,7 +1,7 @@
 package Homework2.StorageModule.service;
 
-import Homework1.StorageModule.model.*;
-import Homework1.StorageModule.exceptions.*;
+import Homework2.StorageModule.model.*;
+import Homework2.StorageModule.exceptions.*;
 import java.util.List;
 
 public class StorageManager {

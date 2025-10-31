@@ -24,6 +24,7 @@
 
 ### Run All Tests
 ```bash
+cd Homework2_V2/
 mvn test
 ```
 ### Run Specefic Test Method

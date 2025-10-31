@@ -1,4 +1,4 @@
-package Homework1.EqiupmentModule.model;
+package Homework2.EqiupmentModule.model;
 
 import Homework1.StorageModule.model.Position;
 import Homework1.LogingModule.LoggingManager;
@@ -16,7 +16,7 @@ public class AGV extends Equipment {
         this.maxLoadWeight = maxLoadWeight;
         this.range = range;
         this.chargingStationId = chargingStationId;
-        logger.log( id + " created at position " + position, LogLevel.INFO, id);
+        logger.log(id + " created at position " + position, LogLevel.INFO, id);
     }
 
     public double getMaxLoadWeight() {
@@ -35,7 +35,7 @@ public class AGV extends Equipment {
         this.chargingStationId = id;
     }
 
-    //needs to be changed later
+    // needs to be changed later
     @Override
     public void charge(ChargingStation c) {
         if (c.startCharging(this)) {

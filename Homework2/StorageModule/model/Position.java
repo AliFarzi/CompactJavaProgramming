@@ -1,4 +1,4 @@
-package Homework1.StorageModule.model;
+package Homework2.StorageModule.model;
 
 import java.util.Objects;
 
@@ -14,15 +14,25 @@ public class Position {
     }
 
     // Getters
-    public int getX() { return x; }
-    public int getY() { return y; }
-    public int getLevel() { return level; }
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 
     // Equals & hashCode for comparing positions
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Position)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Position))
+            return false;
         Position pos = (Position) o;
         return x == pos.x && y == pos.y && level == pos.level;
     }

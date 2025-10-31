@@ -1,4 +1,4 @@
-package Homework1.EqiupmentModule.model;
+package Homework2.EqiupmentModule.model;
 
 import Homework1.StorageModule.model.Position;
 
@@ -14,7 +14,6 @@ public abstract class Equipment {
     private double speed;
     private double batteryLevel;
 
-
     protected Equipment(String id, Position position, double speed, double batteryLevel) {
         this.id = id;
         this.position = position;
@@ -23,12 +22,10 @@ public abstract class Equipment {
         this.state = EquipmentState.IDLE;
     }
 
-
     // --- getters ---
     public String getId() {
         return id;
     }
-
 
     public Position getPosition() {
         return position;
@@ -45,7 +42,6 @@ public abstract class Equipment {
     public double getBatteryLevel() {
         return batteryLevel;
     }
-
 
     public void setPosition(Position position) {
         this.position = position;

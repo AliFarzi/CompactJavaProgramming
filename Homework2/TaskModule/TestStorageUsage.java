@@ -1,4 +1,4 @@
-package Homework1.TaskModule;
+package Homework2.TaskModule;
 
 import Homework1.StorageModule.model.*;
 import Homework1.StorageModule.service.StorageManager;
@@ -24,11 +24,11 @@ public class TestStorageUsage {
         logger.log("Added Charging Station", LogLevel.INFO, "TestStorageUsage");
         ChargingStation cs1 = new ChargingStation("CS001", new Position(5, 5, 0), 2);
 
-        AGV eq1 = new AGV("AGV002", new Position(0, 0, 0), 30, 75, 110,100, "CS001");
+        AGV eq1 = new AGV("AGV002", new Position(0, 0, 0), 30, 75, 110, 100, "CS001");
 
-        AGV eq2 = new AGV("AGV003", new Position(1, 1, 0), 25, 60, 90,80, "CS001");
+        AGV eq2 = new AGV("AGV003", new Position(1, 1, 0), 25, 60, 90, 80, "CS001");
 
-        equipmentManager.addEquipment(eq1); 
+        equipmentManager.addEquipment(eq1);
         equipmentManager.addEquipment(eq2);
         logger.log("Added AGVs to Equipment Manager", LogLevel.INFO, "TestStorageUsage");
 
@@ -42,7 +42,6 @@ public class TestStorageUsage {
         equipmentManager.releaseEquipment(eq1);
         logger.log("Released AGV002", LogLevel.INFO, "TestStorageUsage");
         equipmentManager.printEquipmentInfo();
-
 
         Storage storage = new Storage("WH1", "Main Warehouse", 3, 3, 1); // 9 cells
         StorageManager warehouse = new StorageManager(storage);

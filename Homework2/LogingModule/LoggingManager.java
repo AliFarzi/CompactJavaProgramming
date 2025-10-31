@@ -1,4 +1,4 @@
-package Homework1.LogingModule;
+package Homework2.LogingModule;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-
 
 public class LoggingManager {
 
@@ -75,52 +73,51 @@ public class LoggingManager {
         }
     }
 
-    
     public void openLog(String source, String date) {
-    File logFile = new File(baseDir + "/" + source + "/" + date + ".log");
-    if (!logFile.exists()) {
-        System.out.println("Log file does not exist.");
-        return;
-    }
-
-    try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+        File logFile = new File(baseDir + "/" + source + "/" + date + ".log");
+        if (!logFile.exists()) {
+            System.out.println("Log file does not exist.");
+            return;
         }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean deleteLog(String source, String date) {
-    File logFile = new File(baseDir + "/" + source + "/" + date + ".log");
+        File logFile = new File(baseDir + "/" + source + "/" + date + ".log");
 
-    if (!logFile.exists()) {
-        System.out.println("Log file not found: " + logFile.getAbsolutePath());
-        return false;
+        if (!logFile.exists()) {
+            System.out.println("Log file not found: " + logFile.getAbsolutePath());
+            return false;
+        }
+
+        boolean deleted = logFile.delete();
+
+        if (deleted) {
+            System.out.println("Log file deleted: " + logFile.getAbsolutePath());
+        } else {
+            System.out.println(" Failed to delete log file: " + logFile.getAbsolutePath());
+        }
+
+        return deleted;
     }
 
-    boolean deleted = logFile.delete();
-
-    if (deleted) {
-        System.out.println("Log file deleted: " + logFile.getAbsolutePath());
-    } else {
-        System.out.println(" Failed to delete log file: " + logFile.getAbsolutePath());
-    }
-
-    return deleted;
-}
-
-
-    /* 
-    // Simple test
-    public static void main(String[] args) {
-        LoggingManager logger = LoggingManager.getInstance();
-
-        logger.log("Starting StorageManager task", LogLevel.INFO, "StorageManager");
-        logger.log("Crane1 is busy", LogLevel.WARN, "Crane1");
-        logger.log("Failed to move item 12 to Cell(5,3)", LogLevel.ERROR, "StorageManager");
-    }
-    */
+    /*
+     * // Simple test
+     * public static void main(String[] args) {
+     * LoggingManager logger = LoggingManager.getInstance();
+     * 
+     * logger.log("Starting StorageManager task", LogLevel.INFO, "StorageManager");
+     * logger.log("Crane1 is busy", LogLevel.WARN, "Crane1");
+     * logger.log("Failed to move item 12 to Cell(5,3)", LogLevel.ERROR,
+     * "StorageManager");
+     * }
+     */
 }

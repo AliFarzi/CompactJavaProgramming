@@ -1,13 +1,13 @@
-package Homework1.StorageModule.model;
+package Homework2.StorageModule.model;
 
 import Homework1.StorageModule.exceptions.CellEmptyException;
 
 //  Represents a single storage slot (cell) in the warehouse.
 public class Cell {
-    private String id;        
-    private Item content;      
+    private String id;
+    private Item content;
     private Position position;
-    private boolean locked;   
+    private boolean locked;
 
     public Cell(String id, Position position) {
         this.id = id;
@@ -30,18 +30,18 @@ public class Cell {
             throw new IllegalStateException("Cell " + id + " is not available!");
         }
         this.content = item;
-        item.moveTo(this.position);                 
-        item.updateStatus(Item.Status.STORED);    
+        item.moveTo(this.position);
+        item.updateStatus(Item.Status.STORED);
     }
 
     // Remove the item from the cell
-    public Item retrieve() throws CellEmptyException{
+    public Item retrieve() throws CellEmptyException {
         if (isEmpty()) {
             throw new CellEmptyException();
         }
         Item temp = content;
         content = null;
-        temp.updateStatus(Item.Status.RETRIEVED);  
+        temp.updateStatus(Item.Status.RETRIEVED);
         return temp;
     }
 

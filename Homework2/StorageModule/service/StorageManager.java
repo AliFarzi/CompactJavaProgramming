@@ -1,4 +1,4 @@
-package Homework1.StorageModule.service;
+package Homework2.StorageModule.service;
 
 import Homework1.StorageModule.model.*;
 import Homework1.StorageModule.exceptions.*;
@@ -16,12 +16,15 @@ public class StorageManager {
             throws CellOccupiedException, CellLockedException, CellNotFoundException {
 
         Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException(position);
-        if (cell.isLocked()) throw new CellLockedException(position);
-        if (!cell.isEmpty()) throw new CellOccupiedException(position);
+        if (cell == null)
+            throw new CellNotFoundException(position);
+        if (cell.isLocked())
+            throw new CellLockedException(position);
+        if (!cell.isEmpty())
+            throw new CellOccupiedException(position);
 
         cell.store(item);
-        item.moveTo(position); 
+        item.moveTo(position);
     }
 
     // Add an item to the first available cell in the warehouse.
@@ -40,9 +43,12 @@ public class StorageManager {
             throws CellEmptyException, CellLockedException, CellNotFoundException {
 
         Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException(position);
-        if (cell.isLocked()) throw new CellLockedException(position);
-        if (cell.isEmpty()) throw new CellEmptyException(position);
+        if (cell == null)
+            throw new CellNotFoundException(position);
+        if (cell.isLocked())
+            throw new CellLockedException(position);
+        if (cell.isEmpty())
+            throw new CellEmptyException(position);
 
         Item item = cell.retrieve();
         item.updateStatus(Item.Status.RETRIEVED);
@@ -58,13 +64,16 @@ public class StorageManager {
         if (fromCell == null || toCell == null)
             throw new CellNotFoundException();
 
-        if (fromCell.isEmpty()) throw new CellEmptyException(from);
-        if (!toCell.isEmpty()) throw new CellOccupiedException(to);
-        if (fromCell.isLocked() || toCell.isLocked()) throw new CellLockedException();
+        if (fromCell.isEmpty())
+            throw new CellEmptyException(from);
+        if (!toCell.isEmpty())
+            throw new CellOccupiedException(to);
+        if (fromCell.isLocked() || toCell.isLocked())
+            throw new CellLockedException();
 
         Item item = fromCell.retrieve();
         toCell.store(item);
-        item.moveTo(to); 
+        item.moveTo(to);
     }
 
     // Find the first available empty cell (default strategy: first-fit)
@@ -75,13 +84,14 @@ public class StorageManager {
                 return cell;
             }
         }
-        return null; 
+        return null;
     }
 
     public int countAvailableCells() {
         int count = 0;
         for (Cell cell : storage.getCells()) {
-            if (cell.isAvailable()) count++;
+            if (cell.isAvailable())
+                count++;
         }
         return count;
     }

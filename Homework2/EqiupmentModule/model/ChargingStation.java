@@ -1,4 +1,4 @@
-package Homework1.EqiupmentModule.model;
+package Homework2.EqiupmentModule.model;
 
 import Homework1.StorageModule.model.Position;
 

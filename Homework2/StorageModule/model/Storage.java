@@ -1,4 +1,4 @@
-package Homework1.StorageModule.model;
+package Homework2.StorageModule.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,12 @@ import Homework1.StorageModule.exceptions.CellNotFoundException;
 
 //  * Represents the entire warehouse.
 public class Storage {
-    private String id;                
-    private String name;          
-    private int rows;                 
-    private int columns;             
-    private int levels;               
-    private List<Cell> cells;          
+    private String id;
+    private String name;
+    private int rows;
+    private int columns;
+    private int levels;
+    private List<Cell> cells;
 
     public Storage(String id, String name, int rows, int columns, int levels) {
         this.id = id;
@@ -43,7 +43,6 @@ public class Storage {
         }
         throw new CellNotFoundException(position);
     }
-    
 
     // Find the first available (empty and unlocked) cell
     public Cell findEmptyCell() {
@@ -52,26 +51,42 @@ public class Storage {
                 return cell;
             }
         }
-        return null; 
+        return null;
     }
 
     public void addItem(Item item, Position position) throws CellNotFoundException {
         Cell cell = getCell(position);
         cell.store(item); // no need to check null anymore; getCell will throw if not found
     }
-    
-    public Item removeItem(Position position) throws CellNotFoundException,CellEmptyException {
+
+    public Item removeItem(Position position) throws CellNotFoundException, CellEmptyException {
         Cell cell = getCell(position);
         return cell.retrieve();
     }
-    
 
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public int getRows() { return rows; }
-    public int getColumns() { return columns; }
-    public int getLevels() { return levels; }
-    public List<Cell> getCells() { return cells; }
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public int getLevels() {
+        return levels;
+    }
+
+    public List<Cell> getCells() {
+        return cells;
+    }
 
     @Override
     public String toString() {

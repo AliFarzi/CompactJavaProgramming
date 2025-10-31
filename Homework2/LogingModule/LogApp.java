@@ -1,4 +1,4 @@
-package Homework1.LogingModule;
+package Homework2.LogingModule;
 
 import java.io.File;
 import java.util.Scanner;
@@ -68,19 +68,18 @@ public class LogApp {
         System.out.println("For opening choose 1 or deleting choose 2");
         int actionChoice = scanner.nextInt();
         scanner.nextLine(); // consume newline
-        
+
         // Build the source string relative to logsBase
         String relativeSource = logsBase.toPath().relativize(logFolder.toPath()).toString().replace("\\", "/");
 
         // Remove ".log" extension for the date
         String date = selectedFile.replace(".log", "");
-        if(actionChoice == 2){
+        if (actionChoice == 2) {
             logger.deleteLog(relativeSource, date);
-        } else{
-             logger.openLog(relativeSource, date);
-             System.out.println(relativeSource + " log for " + date + " opened.");
+        } else {
+            logger.openLog(relativeSource, date);
+            System.out.println(relativeSource + " log for " + date + " opened.");
         }
-       
+
     }
 }
-

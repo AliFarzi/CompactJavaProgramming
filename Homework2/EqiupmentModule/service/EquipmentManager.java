@@ -1,4 +1,4 @@
-package Homework1.EqiupmentModule.service;
+package Homework2.EqiupmentModule.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class EquipmentManager {
 
     private List<Equipment> equipmentList = new ArrayList<>();
     private LoggingManager logger = LoggingManager.getInstance();
-    
+
     public EquipmentManager() {
         logger.log("EquipmentManager initialized", LogLevel.INFO, "EquipmentManager");
     }

@@ -1,4 +1,4 @@
-package Homework1.StorageModule.constants;
+package Homework2.StorageModule.constants;
 
 public class ExceptionMessages {
     public static final String CELL_EMPTY = "Cell is empty at position ";

@@ -5,7 +5,7 @@ import Homework1.StorageModule.constants.ExceptionMessages;
 
 public class CellNotFoundException extends Exception {
 
-    public CellNotFoundException(Position position) {
+    public CellNotFoundException(Homework2.StorageModule.model.Position position) {
         super(ExceptionMessages.CELL_NOT_FOUND + position);
     }
 

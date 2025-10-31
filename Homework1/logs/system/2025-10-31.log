@@ -1,0 +1,18 @@
+[2025-10-31 15:40:59][INFO][StorageManager] Starting StorageManager task
+[2025-10-31 15:40:59][WARN][Crane1] Crane1 is busy
+[2025-10-31 15:40:59][ERROR][StorageManager] Failed to move item 12 to Cell(5,3)
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Starting Testing task
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Initializing Equipment Manager
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Added Charging Station
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Added AGVs to Equipment Manager
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Assigned AGV002
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Released AGV002
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Starting Testing task
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Initializing Equipment Manager
+[2025-10-31 15:45:41][INFO][EquipmentManager] EquipmentManager initialized
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Added Charging Station
+[2025-10-31 15:45:42][INFO][AGV002] AGV002 created at position (0, 0, 0)
+[2025-10-31 15:45:42][INFO][AGV003] AGV003 created at position (1, 1, 0)
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Added AGVs to Equipment Manager
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Assigned AGV002
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Released AGV002

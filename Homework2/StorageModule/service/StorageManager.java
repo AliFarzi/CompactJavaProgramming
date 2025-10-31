@@ -1,7 +1,7 @@
-package Homework1.StorageModule.service;
+package Homework2.StorageModule.service;
 
-import Homework1.StorageModule.model.*;
-import Homework1.StorageModule.exceptions.*;
+import Homework2.StorageModule.model.*;
+import Homework2.StorageModule.exceptions.*;
 import java.util.List;
 
 public class StorageManager {
@@ -15,14 +15,21 @@ public class StorageManager {
     public void addItem(Item item, Position position)
             throws CellOccupiedException, CellLockedException, CellNotFoundException {
 
-        Cell cell = storage.getCell(position);
-        if (cell == null) throw new CellNotFoundException(position);
-        if (cell.isLocked()) throw new CellLockedException(position);
-        if (!cell.isEmpty()) throw new CellOccupiedException(position);
+        try {
+            Cell cell = storage.getCell(position);
+            if (cell.isLocked())
+                throw new CellLockedException(position);
+            if (!cell.isEmpty())
+                throw new CellOccupiedException(position);
 
-        cell.store(item);
-        item.moveTo(position); 
+            cell.store(item);
+            item.moveTo(position);
+        } catch (CellNotFoundException | CellOccupiedException | CellLockedException e) {
+            System.out.println("Failed to add item " + item.getId() + " at " + position);
+            throw e; // re-throw for the caller to handle
+        }
     }
+
 
     // Add an item to the first available cell in the warehouse.
     public void addItem(Item item)
@@ -50,22 +57,29 @@ public class StorageManager {
     }
 
     public void moveItem(Position from, Position to)
-            throws CellEmptyException, CellOccupiedException, CellLockedException, CellNotFoundException {
+            throws CellEmptyException, CellOccupiedException, CellLockedException, CellNotFoundException, StorageOperationException {
 
-        Cell fromCell = storage.getCell(from);
-        Cell toCell = storage.getCell(to);
+        try {
+            Cell fromCell = storage.getCell(from);
+            Cell toCell = storage.getCell(to);
 
-        if (fromCell == null || toCell == null)
-            throw new CellNotFoundException();
+            if (fromCell.isEmpty())
+                throw new CellEmptyException(from);
+            if (!toCell.isEmpty())
+                throw new CellOccupiedException(to);
+            if (fromCell.isLocked() || toCell.isLocked())
+                throw new CellLockedException();
 
-        if (fromCell.isEmpty()) throw new CellEmptyException(from);
-        if (!toCell.isEmpty()) throw new CellOccupiedException(to);
-        if (fromCell.isLocked() || toCell.isLocked()) throw new CellLockedException();
+            Item item = fromCell.retrieve();
+            toCell.store(item);
+            item.moveTo(to);
 
-        Item item = fromCell.retrieve();
-        toCell.store(item);
-        item.moveTo(to); 
+        } catch (CellNotFoundException | CellEmptyException | CellOccupiedException | CellLockedException e) {
+            System.out.println("Original exception: " + e.getClass().getSimpleName());
+            throw new StorageOperationException("Failed to move item from " + from + " to " + to, e);
+        }
     }
+
 
     // Find the first available empty cell (default strategy: first-fit)
     public Cell findFirstAvailableCell() {

@@ -1,49 +1,12 @@
-package Homework1.TaskModule;
+package Homework2.TaskModule;
 
-import Homework1.StorageModule.model.*;
-import Homework1.StorageModule.service.StorageManager;
-import Homework1.StorageModule.exceptions.*;
-import Homework1.LogingModule.LoggingManager;
-import Homework1.LogingModule.LogLevel;
-import Homework1.EqiupmentModule.*;
-import Homework1.EqiupmentModule.model.AGV;
-import Homework1.EqiupmentModule.model.ChargingStation;
-import Homework1.EqiupmentModule.model.Equipment;
-import Homework1.EqiupmentModule.service.EquipmentManager;
+import Homework2.StorageModule.model.*;
+import Homework2.StorageModule.service.StorageManager;
+import Homework2.StorageModule.exceptions.*;
 
 public class TestStorageUsage {
 
     public static void main(String[] args) {
-
-        LoggingManager logger = LoggingManager.getInstance();
-        logger.log("Starting Testing task", LogLevel.INFO, "TestStorageUsage");
-
-        logger.log("Initializing Equipment Manager", LogLevel.INFO, "TestStorageUsage");
-        EquipmentManager equipmentManager = new EquipmentManager();
-
-        logger.log("Added Charging Station", LogLevel.INFO, "TestStorageUsage");
-        ChargingStation cs1 = new ChargingStation("CS001", new Position(5, 5, 0), 2);
-
-        AGV eq1 = new AGV("AGV002", new Position(0, 0, 0), 30, 75, 110,100, "CS001");
-
-        AGV eq2 = new AGV("AGV003", new Position(1, 1, 0), 25, 60, 90,80, "CS001");
-
-        equipmentManager.addEquipment(eq1); 
-        equipmentManager.addEquipment(eq2);
-        logger.log("Added AGVs to Equipment Manager", LogLevel.INFO, "TestStorageUsage");
-
-        equipmentManager.printEquipmentInfo();
-
-        equipmentManager.assignEquipment(eq1);
-        logger.log("Assigned AGV002", LogLevel.INFO, "TestStorageUsage");
-
-        equipmentManager.printEquipmentInfo();
-
-        equipmentManager.releaseEquipment(eq1);
-        logger.log("Released AGV002", LogLevel.INFO, "TestStorageUsage");
-        equipmentManager.printEquipmentInfo();
-
-
         Storage storage = new Storage("WH1", "Main Warehouse", 3, 3, 1); // 9 cells
         StorageManager warehouse = new StorageManager(storage);
 
@@ -132,7 +95,7 @@ public class TestStorageUsage {
             }
 
         } catch (Exception e) {
-            // This should rarely trigger now
+            // This should trigger now
             System.out.println("Unexpected error: " + e.getMessage());
         }
 

@@ -1,0 +1,12 @@
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Starting Testing task
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Initializing Equipment Manager
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Added Charging Station
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Added AGVs to Equipment Manager
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Assigned AGV002
+[2025-10-31 15:41:24][INFO][TestStorageUsage] Released AGV002
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Starting Testing task
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Initializing Equipment Manager
+[2025-10-31 15:45:41][INFO][TestStorageUsage] Added Charging Station
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Added AGVs to Equipment Manager
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Assigned AGV002
+[2025-10-31 15:45:42][INFO][TestStorageUsage] Released AGV002

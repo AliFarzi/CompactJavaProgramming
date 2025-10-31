@@ -3,10 +3,17 @@ package Homework1.EqiupmentModule.service;
 import java.util.ArrayList;
 import java.util.List;
 import Homework1.EqiupmentModule.model.*;
+import Homework1.LogingModule.LoggingManager;
+import Homework1.LogingModule.LogLevel;
 
 public class EquipmentManager {
 
     private List<Equipment> equipmentList = new ArrayList<>();
+    private LoggingManager logger = LoggingManager.getInstance();
+    
+    public EquipmentManager() {
+        logger.log("EquipmentManager initialized", LogLevel.INFO, "EquipmentManager");
+    }
 
     public void addEquipment(Equipment e) {
         if (e != null && !equipmentList.contains(e)) {

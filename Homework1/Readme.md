@@ -4,6 +4,8 @@
 This project is a **Fully Automated Storage System**, designed to simulate how an automated warehouse manages items, equipment, and logs.  
 It demonstrates a modular architecture in Java, where each team member is responsible for a separate component of the system, all integrated together to simulate the entire lifecycle of storage management.
 
+Screencast: https://drive.google.com/file/d/12G-Zi285l3kJfkctonhq37yGpHu6VM5r/view?usp=sharing
+
 ---
 
 ## 🧩 Project Modules

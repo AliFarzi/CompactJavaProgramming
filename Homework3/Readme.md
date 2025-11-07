@@ -87,3 +87,59 @@ Charging Station ID: CS001 Current Queue Time (ms): 2000.0
 Charging Station ID: CS002 Current Queue Time (ms): 5000.0
 Charging Station ID: CS003 Current Queue Time (ms): 5000.0
 AGV004 could not be assigned ? wait time exceeded.  
+```
+
+## Answering Questions
+
+This section provides an overview and comparison of **concurrency models**, including **Concurrency vs. Parallelism** and the differences between **Blocking** and **Non-blocking algorithms** used in concurrent systems.
+
+---
+
+### ⚔️ Concurrency vs Parallelism
+
+| Concept | Description | Example | Purpose |
+|----------|--------------|----------|----------|
+| **Concurrency** | The ability of a system to handle multiple tasks *at once* conceptually. Tasks start, run, and complete in overlapping time periods. | Multiple AGVs waiting and taking turns to use charging stations — even if one thread handles them via switching. | Manage multiple tasks efficiently. |
+| **Parallelism** | Actual simultaneous execution of tasks on multiple CPU cores or threads. | Each charging station has its own dedicated thread running at the same time. | Speed up task execution using multiple processors. |
+
+🔹 **In short:**  
+- **Concurrency = Dealing with many things at once.**  
+- **Parallelism = Doing many things at once.**
+
+---
+
+### ⚙️ Concurrency Models Overview
+
+| Model | Description | Pros | Cons |
+|--------|--------------|------|------|
+| **Thread-Based Concurrency** | Each task runs in its own OS thread (like Java’s `Runnable` or `ExecutorService`). | Simple to implement, good OS support, clear separation of tasks. | Thread management overhead, possible race conditions, context switching cost. |
+| **Event-Driven (Asynchronous)** | Single thread uses non-blocking I/O and event loops to manage multiple tasks. | Lightweight, scalable, avoids thread overhead. | Harder debugging, complex callback structures, not ideal for CPU-heavy work. |
+| **Actor Model** | Tasks (actors) communicate only by message passing, avoiding shared state. | Eliminates race conditions, great scalability. | Higher latency from message passing, more complex design. |
+| **Data Parallelism (Fork/Join)** | Splits one large task into smaller subtasks running in parallel, then combines results. | Very efficient for data-heavy workloads. | Limited use for non-divisible tasks like I/O or dependent processes. |
+
+---
+
+### 🧩 Blocking vs Non-Blocking Concurrency Algorithms
+
+| Type | Description | Example | Advantages | Disadvantages |
+|------|--------------|----------|-------------|----------------|
+| **Blocking** | A thread waits (is “blocked”) until a condition or resource is available. | `Thread.sleep()`, `wait()`, I/O operations. | Easier to reason about; deterministic order of events. | Wastes CPU cycles waiting, reduced scalability under load. |
+| **Non-Blocking** | Threads never stop; they use retry mechanisms (like compare-and-swap) to make progress without waiting. | `AtomicInteger`, `ConcurrentLinkedQueue`, CAS operations. | High performance, no thread blocking, good for multi-core systems. | Complex to implement, risk of livelock or starvation. |
+
+---
+
+### 🧮 Example in This Project
+
+| Mechanism | Where Used | Type |
+|------------|-------------|------|
+| `ExecutorService.newFixedThreadPool(K)` | Manages concurrent charging threads (each station). | **Thread-based parallelism** |
+| `Thread.sleep()` | Simulates charging time delay. | **Blocking** concurrency |
+| Dynamic assignment of AGVs | Managed via shared data structures with synchronization. | **Concurrent task scheduling** |
+
+---
+
+### ✅ Summary
+
+- **Concurrency** handles multiple AGVs *conceptually* at once.  
+- **Parallelism** (via multiple threads) lets several AGVs *actually* charge simultaneously.  
+- The project demonstrates a **blocking concurrency model** using `ExecutorService` and `Thread.sleep()` for time simulation.  

@@ -1,4 +1,4 @@
-package Homework2.EqiupmentModule.service.exceptions;
+package Homework3.EqiupmentModule.service.exceptions;
 
 public class EquipmentOperationException extends Exception {
     public EquipmentOperationException(String message) {

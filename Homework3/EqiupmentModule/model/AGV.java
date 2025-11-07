@@ -1,8 +1,8 @@
-package Homework2.EqiupmentModule.model;
+package Homework3.EqiupmentModule.model;
 
-import Homework1.StorageModule.model.Position;
-import Homework1.LogingModule.LoggingManager;
-import Homework1.LogingModule.LogLevel;
+import Homework3.StorageModule.model.Position;
+import Homework3.LogingModule.LoggingManager;
+import Homework3.LogingModule.LogLevel;
 
 public class AGV extends Equipment {
     private final double maxLoadWeight;

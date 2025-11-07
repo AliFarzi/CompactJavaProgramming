@@ -1,4 +1,4 @@
-package Homework2.EqiupmentModule.service.exceptions;
+package Homework3.EqiupmentModule.service.exceptions;
 
 public class ResourceAccessException extends EquipmentOperationException {
     public ResourceAccessException(String message, Throwable cause) {

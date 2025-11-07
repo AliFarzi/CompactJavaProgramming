@@ -1,15 +1,15 @@
-package Homework2.TaskModule;
+package Homework3.TaskModule;
 
-import Homework1.StorageModule.model.*;
-import Homework1.StorageModule.service.StorageManager;
-import Homework1.StorageModule.exceptions.*;
-import Homework1.LogingModule.LoggingManager;
-import Homework1.LogingModule.LogLevel;
-import Homework1.EqiupmentModule.*;
-import Homework1.EqiupmentModule.model.AGV;
-import Homework1.EqiupmentModule.model.ChargingStation;
-import Homework1.EqiupmentModule.model.Equipment;
-import Homework1.EqiupmentModule.service.EquipmentManager;
+import Homework3.StorageModule.model.*;
+import Homework3.StorageModule.service.StorageManager;
+import Homework3.StorageModule.exceptions.*;
+import Homework3.LogingModule.LoggingManager;
+import Homework3.LogingModule.LogLevel;
+import Homework3.EqiupmentModule.*;
+import Homework3.EqiupmentModule.model.AGV;
+import Homework3.EqiupmentModule.model.ChargingStation;
+import Homework3.EqiupmentModule.model.Equipment;
+import Homework3.EqiupmentModule.service.EquipmentManager;
 
 public class TestStorageUsage {
 
@@ -34,14 +34,6 @@ public class TestStorageUsage {
 
         equipmentManager.printEquipmentInfo();
 
-        equipmentManager.assignEquipment(eq1);
-        logger.log("Assigned AGV002", LogLevel.INFO, "TestStorageUsage");
-
-        equipmentManager.printEquipmentInfo();
-
-        equipmentManager.releaseEquipment(eq1);
-        logger.log("Released AGV002", LogLevel.INFO, "TestStorageUsage");
-        equipmentManager.printEquipmentInfo();
 
         Storage storage = new Storage("WH1", "Main Warehouse", 3, 3, 1); // 9 cells
         StorageManager warehouse = new StorageManager(storage);

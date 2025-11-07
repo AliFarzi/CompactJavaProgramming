@@ -1,6 +1,6 @@
-package Homework2.EqiupmentModule.model;
+package Homework3.EqiupmentModule.model;
 
-import Homework1.StorageModule.model.Position;
+import Homework3.StorageModule.model.Position;
 
 public class ChargingStation {
     private final String id;

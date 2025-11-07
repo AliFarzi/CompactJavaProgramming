@@ -1,4 +1,4 @@
-package Homework2.LogingModule;
+package Homework3.LogingModule;
 
 import java.io.File;
 import java.util.Scanner;

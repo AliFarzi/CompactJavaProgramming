@@ -1,10 +1,10 @@
-package Homework2.StorageModule.model;
+package Homework3.StorageModule.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Homework2.StorageModule.exceptions.CellEmptyException;
-import Homework2.StorageModule.exceptions.CellNotFoundException;
+import Homework3.StorageModule.exceptions.CellEmptyException;
+import Homework3.StorageModule.exceptions.CellNotFoundException;
 
 //  * Represents the entire warehouse.
 public class Storage {

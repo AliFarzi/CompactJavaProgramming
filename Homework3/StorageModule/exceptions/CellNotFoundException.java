@@ -1,7 +1,7 @@
-package Homework2.StorageModule.exceptions;
+package Homework3.StorageModule.exceptions;
 
-import Homework2.StorageModule.model.Position;
-import Homework2.StorageModule.constants.ExceptionMessages;
+import Homework3.StorageModule.model.Position;
+import Homework3.StorageModule.constants.ExceptionMessages;
 
 public class CellNotFoundException extends Exception {
 

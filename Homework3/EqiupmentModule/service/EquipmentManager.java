@@ -1,4 +1,4 @@
-package Homework2.EqiupmentModule.service;
+package Homework3.EqiupmentModule.service;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -7,10 +7,10 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import Homework2.EqiupmentModule.model.*;
-import Homework1.LogingModule.LoggingManager;
-import Homework1.LogingModule.LogLevel;
-import Homework2.EqiupmentModule.service.exceptions.*;
+import Homework3.EqiupmentModule.model.*;
+import Homework3.LogingModule.LoggingManager;
+import Homework3.LogingModule.LogLevel;
+import Homework3.EqiupmentModule.service.exceptions.*;
 
 public class EquipmentManager {
 

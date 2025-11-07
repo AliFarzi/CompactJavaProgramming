@@ -79,7 +79,7 @@ public class EquipmentManager {
 
     public void release(String id) throws EquipmentOperationException {
         Equipment e = requireById(id);
-        if (e.getState() != Equipment.EquipmentState.BUSY) {
+        if (e.getState() != Equipment.EquipmentState.IDLE ) {
             throw new InvalidEquipmentStateException("Only BUSY equipment can be released");
         }
         e.setState(Equipment.EquipmentState.IDLE);
@@ -92,10 +92,11 @@ public class EquipmentManager {
                 throw new IllegalArgumentException("ChargingStation is null");
             Equipment e = requireById(id);
 
-            if (e.getState() == Equipment.EquipmentState.BUSY) {
+            if (e.getState() == Equipment.EquipmentState.BUSY ) {
                 throw new EquipmentUnavailableException("Busy equipment cannot start charging");
             }
             e.setState(Equipment.EquipmentState.CHARGING);
+            station.assignEquipment(e);
             logger.log("Charging started for " + id, LogLevel.INFO, "EquipmentManager");
 
         } catch (IllegalArgumentException iae) {
@@ -106,6 +107,16 @@ public class EquipmentManager {
 
             throw new EquipmentOperationException("Unexpected error while sending '" + id + "' to charge", unexpected);
         }
+    }
+
+    public void releaseFromCharge(String id, ChargingStation station) throws EquipmentOperationException {
+        Equipment e = requireById(id);
+        if (e.getState() != Equipment.EquipmentState.CHARGING ) {
+            throw new InvalidEquipmentStateException("Only CHARGING equipment can be released from charge");
+        }
+        e.setState(Equipment.EquipmentState.IDLE);
+        station.unassignEquipment(e);
+        logger.log("Released from charge " + id, LogLevel.INFO, "EquipmentManager");
     }
 
     public void exportEquipmentCsv(Path out) throws EquipmentOperationException {

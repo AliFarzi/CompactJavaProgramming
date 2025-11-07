@@ -1,0 +1,25 @@
+[2025-11-07 23:03:49][INFO][EquipmentManager] EquipmentManager initialized
+[2025-11-07 23:03:49][INFO][EquipmentManager] Added AGV001
+[2025-11-07 23:03:49][INFO][EquipmentManager] Charging started for AGV001
+[2025-11-07 23:03:49][INFO][EquipmentManager] Added AGV002
+[2025-11-07 23:03:49][INFO][EquipmentManager] Charging started for AGV002
+[2025-11-07 23:03:50][INFO][EquipmentManager] Added AGV003
+[2025-11-07 23:03:50][INFO][EquipmentManager] Charging started for AGV003
+[2025-11-07 23:03:51][INFO][EquipmentManager] Added AGV004
+[2025-11-07 23:03:52][INFO][EquipmentManager] Added AGV005
+[2025-11-07 23:03:53][INFO][EquipmentManager] Released from charge AGV001
+[2025-11-07 23:03:53][INFO][EquipmentManager] Charging started for AGV005
+[2025-11-07 23:03:53][INFO][EquipmentManager] Added AGV006
+[2025-11-07 23:03:54][INFO][EquipmentManager] Added AGV007
+[2025-11-07 23:03:54][INFO][EquipmentManager] Added AGV008
+[2025-11-07 23:03:55][INFO][EquipmentManager] Released from charge AGV003
+[2025-11-07 23:03:55][INFO][EquipmentManager] Charging started for AGV008
+[2025-11-07 23:03:55][INFO][EquipmentManager] Added AGV009
+[2025-11-07 23:03:55][INFO][EquipmentManager] Released from charge AGV002
+[2025-11-07 23:03:56][INFO][EquipmentManager] Charging started for AGV009
+[2025-11-07 23:03:56][INFO][EquipmentManager] Added AGV010
+[2025-11-07 23:03:57][INFO][EquipmentManager] Released from charge AGV005
+[2025-11-07 23:03:57][INFO][EquipmentManager] Charging started for AGV010
+[2025-11-07 23:03:58][INFO][EquipmentManager] Released from charge AGV008
+[2025-11-07 23:03:59][INFO][EquipmentManager] Released from charge AGV009
+[2025-11-07 23:04:03][INFO][EquipmentManager] Released from charge AGV010

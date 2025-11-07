@@ -1,5 +1,7 @@
 package Homework3.EqiupmentModule.model;
 
+import java.util.ArrayList;
+
 import Homework3.StorageModule.model.Position;
 
 public class ChargingStation {
@@ -8,13 +10,14 @@ public class ChargingStation {
     private final double powerKW;
     private boolean occupied;
     private String equipmentId;
+    private ArrayList<Equipment> assignedEquipments = new ArrayList<>();
+    private double queueTime = 0;
 
     public ChargingStation(String id, Position position, double powerKW) {
         this.id = id;
         this.position = position;
         this.powerKW = powerKW;
         this.occupied = false;
-        this.equipmentId = null;
     }
 
     public String getId() {
@@ -37,6 +40,33 @@ public class ChargingStation {
         return equipmentId;
     }
 
+    public ArrayList<Equipment> getAssignedEquipments() {
+        return assignedEquipments;
+    }
+
+    public void assignEquipment(Equipment e) {
+        if (e != null && !assignedEquipments.contains(e)) {
+            assignedEquipments.add(e);
+        }
+    }
+
+    public void unassignEquipment(Equipment e) {
+        assignedEquipments.remove(e);
+    }
+
+    public double calculateQueueTime() {
+        double totalTime = 0;
+        if(assignedEquipments.isEmpty()) {
+            System.out.println("Charging Station ID: " + id + " No AGV, Current Queue Time (ms): " + queueTime);
+            return 0;
+        }
+        for (Equipment e : assignedEquipments) {
+            totalTime += e.getChargingTime();
+        }
+        this.queueTime = totalTime;
+        System.out.println("Charging Station ID: " + id + " Current Queue Time (ms): " + queueTime);
+        return queueTime;
+    }
     public boolean startCharging(Equipment e) {
         if (occupied)
             return false;

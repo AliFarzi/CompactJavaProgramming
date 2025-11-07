@@ -15,7 +15,7 @@ public class LoggingManager {
     private static LoggingManager instance;
     private static final Object lock = new Object();
 
-    private final String baseDir = "Homework1/logs"; // base folder for all logs
+    private final String baseDir = "Homework3/logs"; // base folder for all logs
     private final String modulesDir = baseDir + "/modules";
 
     private LoggingManager() {

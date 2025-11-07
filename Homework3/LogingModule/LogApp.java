@@ -9,7 +9,7 @@ public class LogApp {
         Scanner scanner = new Scanner(System.in);
         LoggingManager logger = LoggingManager.getInstance();
 
-        File logsBase = new File("Homework1/logs");
+        File logsBase = new File("Homework3/logs");
 
         // List top-level folders dynamically
         String[] topFolders = logsBase.list((current, name) -> new File(current, name).isDirectory());

@@ -13,6 +13,7 @@ public abstract class Equipment {
     private EquipmentState state;
     private double speed;
     private double batteryLevel;
+    private double chargingTime = 0;
 
     protected Equipment(String id, Position position, double speed, double batteryLevel) {
         this.id = id;
@@ -41,6 +42,20 @@ public abstract class Equipment {
 
     public double getBatteryLevel() {
         return batteryLevel;
+    }
+
+    public double getChargingTime() {
+        return chargingTime;
+    }
+
+    public void setChargingTime(double chargingTime) {
+        this.chargingTime = chargingTime;
+    }
+
+    public void setBatteryLevel(double batteryLevel) {
+
+        // Ensure battery level is between 0 and 100
+        this.batteryLevel = Math.max(0, Math.min(batteryLevel, 100));
     }
 
     public void setPosition(Position position) {

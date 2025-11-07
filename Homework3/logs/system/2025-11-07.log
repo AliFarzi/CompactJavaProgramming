@@ -1,0 +1,87 @@
+[2025-11-07 23:03:49][INFO][EquipmentManager] EquipmentManager initialized
+[2025-11-07 23:03:49][INFO][AGV001] AGV001 created at position (2, 0, 0)
+[2025-11-07 23:03:49][INFO][EquipmentManager] Added AGV001
+[2025-11-07 23:03:49][INFO][Task-AGV001] Starting Charging Process for Equipment: AGV001
+[2025-11-07 23:03:49][INFO][EquipmentManager] Charging started for AGV001
+[2025-11-07 23:03:49][INFO][Task-AGV001] Equipment: AGV001 Charging... Current Level: 67.0%
+[2025-11-07 23:03:49][INFO][AGV002] AGV002 created at position (1, 0, 0)
+[2025-11-07 23:03:49][INFO][EquipmentManager] Added AGV002
+[2025-11-07 23:03:49][INFO][Task-AGV002] Starting Charging Process for Equipment: AGV002
+[2025-11-07 23:03:49][INFO][EquipmentManager] Charging started for AGV002
+[2025-11-07 23:03:49][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 47.0%
+[2025-11-07 23:03:50][INFO][Task-AGV001] Equipment: AGV001 Charging... Current Level: 77.0%
+[2025-11-07 23:03:50][INFO][AGV003] AGV003 created at position (3, 3, 0)
+[2025-11-07 23:03:50][INFO][EquipmentManager] Added AGV003
+[2025-11-07 23:03:50][INFO][Task-AGV003] Starting Charging Process for Equipment: AGV003
+[2025-11-07 23:03:50][INFO][EquipmentManager] Charging started for AGV003
+[2025-11-07 23:03:50][INFO][Task-AGV003] Equipment: AGV003 Charging... Current Level: 53.0%
+[2025-11-07 23:03:50][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 57.0%
+[2025-11-07 23:03:51][INFO][Task-AGV001] Equipment: AGV001 Charging... Current Level: 87.0%
+[2025-11-07 23:03:51][INFO][AGV004] AGV004 created at position (0, 0, 0)
+[2025-11-07 23:03:51][INFO][EquipmentManager] Added AGV004
+[2025-11-07 23:03:51][INFO][Task-AGV003] Equipment: AGV003 Charging... Current Level: 63.0%
+[2025-11-07 23:03:51][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 67.0%
+[2025-11-07 23:03:52][INFO][Task-AGV001] Equipment: AGV001 Charging... Current Level: 97.0%
+[2025-11-07 23:03:52][INFO][AGV005] AGV005 created at position (0, 3, 0)
+[2025-11-07 23:03:52][INFO][EquipmentManager] Added AGV005
+[2025-11-07 23:03:52][INFO][Task-AGV003] Equipment: AGV003 Charging... Current Level: 73.0%
+[2025-11-07 23:03:52][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 77.0%
+[2025-11-07 23:03:53][INFO][Task-AGV001] Equipment: AGV001 Fully Charged!
+[2025-11-07 23:03:53][INFO][EquipmentManager] Released from charge AGV001
+[2025-11-07 23:03:53][INFO][Task-AGV001] Equipment: AGV001 Released from Charging Station.
+[2025-11-07 23:03:53][INFO][Task-AGV005] Starting Charging Process for Equipment: AGV005
+[2025-11-07 23:03:53][INFO][EquipmentManager] Charging started for AGV005
+[2025-11-07 23:03:53][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 64.0%
+[2025-11-07 23:03:53][INFO][AGV006] AGV006 created at position (1, 3, 0)
+[2025-11-07 23:03:53][INFO][EquipmentManager] Added AGV006
+[2025-11-07 23:03:53][INFO][Task-AGV003] Equipment: AGV003 Charging... Current Level: 83.0%
+[2025-11-07 23:03:53][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 87.0%
+[2025-11-07 23:03:54][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 74.0%
+[2025-11-07 23:03:54][INFO][AGV007] AGV007 created at position (0, 4, 0)
+[2025-11-07 23:03:54][INFO][EquipmentManager] Added AGV007
+[2025-11-07 23:03:54][INFO][Task-AGV003] Equipment: AGV003 Charging... Current Level: 93.0%
+[2025-11-07 23:03:54][INFO][Task-AGV002] Equipment: AGV002 Charging... Current Level: 97.0%
+[2025-11-07 23:03:54][INFO][AGV008] AGV008 created at position (0, 2, 0)
+[2025-11-07 23:03:54][INFO][EquipmentManager] Added AGV008
+[2025-11-07 23:03:55][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 84.0%
+[2025-11-07 23:03:55][INFO][Task-AGV003] Equipment: AGV003 Fully Charged!
+[2025-11-07 23:03:55][INFO][EquipmentManager] Released from charge AGV003
+[2025-11-07 23:03:55][INFO][Task-AGV003] Equipment: AGV003 Released from Charging Station.
+[2025-11-07 23:03:55][INFO][Task-AGV008] Starting Charging Process for Equipment: AGV008
+[2025-11-07 23:03:55][INFO][EquipmentManager] Charging started for AGV008
+[2025-11-07 23:03:55][INFO][Task-AGV008] Equipment: AGV008 Charging... Current Level: 75.0%
+[2025-11-07 23:03:55][INFO][AGV009] AGV009 created at position (1, 1, 0)
+[2025-11-07 23:03:55][INFO][EquipmentManager] Added AGV009
+[2025-11-07 23:03:55][INFO][Task-AGV002] Equipment: AGV002 Fully Charged!
+[2025-11-07 23:03:55][INFO][EquipmentManager] Released from charge AGV002
+[2025-11-07 23:03:55][INFO][Task-AGV002] Equipment: AGV002 Released from Charging Station.
+[2025-11-07 23:03:55][INFO][Task-AGV009] Starting Charging Process for Equipment: AGV009
+[2025-11-07 23:03:56][INFO][EquipmentManager] Charging started for AGV009
+[2025-11-07 23:03:56][INFO][Task-AGV009] Equipment: AGV009 Charging... Current Level: 75.0%
+[2025-11-07 23:03:56][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 94.0%
+[2025-11-07 23:03:56][INFO][Task-AGV008] Equipment: AGV008 Charging... Current Level: 85.0%
+[2025-11-07 23:03:56][INFO][AGV010] AGV010 created at position (2, 4, 0)
+[2025-11-07 23:03:56][INFO][EquipmentManager] Added AGV010
+[2025-11-07 23:03:57][INFO][Task-AGV009] Equipment: AGV009 Charging... Current Level: 85.0%
+[2025-11-07 23:03:57][INFO][Task-AGV005] Equipment: AGV005 Fully Charged!
+[2025-11-07 23:03:57][INFO][EquipmentManager] Released from charge AGV005
+[2025-11-07 23:03:57][INFO][Task-AGV005] Equipment: AGV005 Released from Charging Station.
+[2025-11-07 23:03:57][INFO][Task-AGV010] Starting Charging Process for Equipment: AGV010
+[2025-11-07 23:03:57][INFO][EquipmentManager] Charging started for AGV010
+[2025-11-07 23:03:57][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 46.0%
+[2025-11-07 23:03:57][INFO][Task-AGV008] Equipment: AGV008 Charging... Current Level: 95.0%
+[2025-11-07 23:03:58][INFO][Task-AGV009] Equipment: AGV009 Charging... Current Level: 95.0%
+[2025-11-07 23:03:58][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 56.0%
+[2025-11-07 23:03:58][INFO][Task-AGV008] Equipment: AGV008 Fully Charged!
+[2025-11-07 23:03:58][INFO][EquipmentManager] Released from charge AGV008
+[2025-11-07 23:03:58][INFO][Task-AGV008] Equipment: AGV008 Released from Charging Station.
+[2025-11-07 23:03:59][INFO][Task-AGV009] Equipment: AGV009 Fully Charged!
+[2025-11-07 23:03:59][INFO][EquipmentManager] Released from charge AGV009
+[2025-11-07 23:03:59][INFO][Task-AGV009] Equipment: AGV009 Released from Charging Station.
+[2025-11-07 23:03:59][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 66.0%
+[2025-11-07 23:04:00][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 76.0%
+[2025-11-07 23:04:01][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 86.0%
+[2025-11-07 23:04:02][INFO][Task-AGV010] Equipment: AGV010 Charging... Current Level: 96.0%
+[2025-11-07 23:04:03][INFO][Task-AGV010] Equipment: AGV010 Fully Charged!
+[2025-11-07 23:04:03][INFO][EquipmentManager] Released from charge AGV010
+[2025-11-07 23:04:03][INFO][Task-AGV010] Equipment: AGV010 Released from Charging Station.

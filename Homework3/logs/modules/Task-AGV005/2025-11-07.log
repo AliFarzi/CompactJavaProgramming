@@ -1,0 +1,7 @@
+[2025-11-07 23:03:53][INFO][Task-AGV005] Starting Charging Process for Equipment: AGV005
+[2025-11-07 23:03:53][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 64.0%
+[2025-11-07 23:03:54][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 74.0%
+[2025-11-07 23:03:55][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 84.0%
+[2025-11-07 23:03:56][INFO][Task-AGV005] Equipment: AGV005 Charging... Current Level: 94.0%
+[2025-11-07 23:03:57][INFO][Task-AGV005] Equipment: AGV005 Fully Charged!
+[2025-11-07 23:03:57][INFO][Task-AGV005] Equipment: AGV005 Released from Charging Station.

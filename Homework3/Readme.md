@@ -95,7 +95,7 @@ This section provides an overview and comparison of **concurrency models**, incl
 
 ---
 
-### ⚔️ Concurrency vs Parallelism
+###  Concurrency vs Parallelism
 
 | Concept | Description | Example | Purpose |
 |----------|--------------|----------|----------|
@@ -108,18 +108,19 @@ This section provides an overview and comparison of **concurrency models**, incl
 
 ---
 
-### ⚙️ Concurrency Models Overview
+###  Concurrency Models Overview
 
 | Model | Description | Pros | Cons |
 |--------|--------------|------|------|
-| **Thread-Based Concurrency** | Each task runs in its own OS thread (like Java’s `Runnable` or `ExecutorService`). | Simple to implement, good OS support, clear separation of tasks. | Thread management overhead, possible race conditions, context switching cost. |
-| **Event-Driven (Asynchronous)** | Single thread uses non-blocking I/O and event loops to manage multiple tasks. | Lightweight, scalable, avoids thread overhead. | Harder debugging, complex callback structures, not ideal for CPU-heavy work. |
-| **Actor Model** | Tasks (actors) communicate only by message passing, avoiding shared state. | Eliminates race conditions, great scalability. | Higher latency from message passing, more complex design. |
-| **Data Parallelism (Fork/Join)** | Splits one large task into smaller subtasks running in parallel, then combines results. | Very efficient for data-heavy workloads. | Limited use for non-divisible tasks like I/O or dependent processes. |
+| **Shared State Concurrency** | Multiple threads share objects and communicate via shared memory. | Simple conceptually, works well for small applications. | Prone to race conditions, deadlocks, hard to debug, requires careful synchronization. |
+| **Separate State (Shared Nothing)** | Threads do not share objects; communication happens via messages or events. | Avoids most concurrency problems, safer and more predictable. | More complex design, requires message/event management. |
+| **Blocking Concurrency Algorithms** | Threads may wait for resources, locks, or I/O to proceed. | Easier to implement and reason about. | Can hurt scalability due to thread contention and waiting. |
+| **Non-Blocking Concurrency Algorithms** | Threads do not wait; use atomic operations, queues, or asynchronous mechanisms. | High scalability, avoids blocking, better performance. | Harder to implement and debug. |
+
 
 ---
 
-### 🧩 Blocking vs Non-Blocking Concurrency Algorithms
+###  Blocking vs Non-Blocking Concurrency Algorithms
 
 | Type | Description | Example | Advantages | Disadvantages |
 |------|--------------|----------|-------------|----------------|
@@ -128,7 +129,7 @@ This section provides an overview and comparison of **concurrency models**, incl
 
 ---
 
-### 🧮 Example in This Project
+###  Example in This Project
 
 | Mechanism | Where Used | Type |
 |------------|-------------|------|
@@ -138,7 +139,7 @@ This section provides an overview and comparison of **concurrency models**, incl
 
 ---
 
-### ✅ Summary
+###  Summary
 
 - **Concurrency** handles multiple AGVs *conceptually* at once.  
 - **Parallelism** (via multiple threads) lets several AGVs *actually* charge simultaneously.  

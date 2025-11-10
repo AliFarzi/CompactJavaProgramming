@@ -1,5 +1,7 @@
 #  Task Module — Concurrent Charging Simulation
 
+## Screencast
+  [Screen Cast link on Google Drive](https://drive.google.com/file/d/1j-WwS9MyCYt6ijGRPAS7HePzcB3utYP3/view?usp=drive_link)
 ##  Overview
 This module (`Homework3.TaskModule`) simulates a **concurrent AGV charging system** using Java multithreading.  
 It models a scenario where multiple AGVs (Autonomous Guided Vehicles) request charging at random times while a limited number of charging stations (`K`) are available.

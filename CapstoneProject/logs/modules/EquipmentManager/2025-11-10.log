@@ -1,0 +1,10 @@
+[2025-11-10 13:15:49][INFO][EquipmentManager] EquipmentManager initialized
+[2025-11-10 13:15:49][INFO][EquipmentManager] Added AGV001
+[2025-11-10 13:15:49][INFO][EquipmentManager] Charging started for AGV001
+[2025-11-10 13:15:50][INFO][EquipmentManager] Added AGV002
+[2025-11-10 13:15:50][INFO][EquipmentManager] Charging started for AGV002
+[2025-11-10 13:15:51][INFO][EquipmentManager] Added AGV003
+[2025-11-10 13:15:51][INFO][EquipmentManager] Charging started for AGV003
+[2025-11-10 13:15:53][INFO][EquipmentManager] Released from charge AGV001
+[2025-11-10 13:15:54][INFO][EquipmentManager] Released from charge AGV003
+[2025-11-10 13:15:56][INFO][EquipmentManager] Released from charge AGV002
